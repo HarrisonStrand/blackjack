@@ -18,9 +18,9 @@ export const requestDraw2Cards = () => ({
   type: c.REQUEST_DRAW2CARDS
 });
 
-export const getDraw2CardsSuccess = (draw2Cards) => ({
+export const getDraw2CardsSuccess = (draw2cards) => ({
   type: c.GET_DRAW2CARDS_SUCCESS,
-  draw2Cards
+  draw2cards
 });
 
 export const getDraw2CardsFailure = (error) => ({
@@ -44,36 +44,34 @@ export const getDeckFailure = (error) => ({
 
 export const createGameDeck = () => {
   return dispatch => {
-    dispatch(requestTable);
+    dispatch(requestDeck);
     return fetch(`https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=6`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data)
-    })
+      headers: {'Content-Type': 'application/json'}
+      // body: JSON.stringify()
+      })
       .then(response => response.json())
       .then(
         (jsonifiedResponse) => {
-          dispatch(getTableSuccess(jsonifiedResponse.results));
+          dispatch(getDeckSuccess(jsonifiedResponse.results));
         })
       .catch((error) => {
-        dispatch(getTableFailure(error));
+        dispatch(getDeckFailure(error));
       });
   }
 }
 
 export const drawTwoCards = (deckId) => {
   return dispatch => {
-    dispatch(requestCardDraw);
+    dispatch(requestDraw2Cards);
     return fetch(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=2`)
       .then(response => response.json())
       .then(
         (jsonifiedResponse) => {
-          dispatch(getCardDrawSuccess(jsonifiedResponse.results));
+          dispatch(getDraw2CardsSuccess(jsonifiedResponse.results));
         })
       .catch((error) => {
-        dispatch(getTableFailure(error));
+        dispatch(getDraw2CardsFailure(error));
       });
   }
 }
@@ -81,13 +79,15 @@ export const drawTwoCards = (deckId) => {
 export const createDealer = (id) => {
   return dispatch => {
     dispatch(requestDealer);
-    return fetch(`https://localhost:5000/api/Dealer/${id}`)
-      .then(response => response.json())
+    return fetch(`http://localhost:5000/api/Dealer/${id}`, { mode: 'no-cors' })
+      .then(response => response.json()) // same thing as function nameOfFunction(response) { return response.json();}
+      // .then(response => JSON.parse(response))
       .then(
         (jsonifiedResponse) => {
           dispatch(getDealerSuccess(jsonifiedResponse.results));
         })
       .catch((error) => {
+        console.log("error", error);
         dispatch(getDealerFailure(error));
       });
   }

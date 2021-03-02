@@ -1,4 +1,4 @@
-import draw2cardsReducer from './../../reducers/draw2cards-reducer';
+import draw2cardsReducer from './../../reducers/card-draw-reducer';
 import * as c from './../../actions/ActionTypes'
 
 describe('draw2cardsReducer', () => {
@@ -48,7 +48,7 @@ describe('draw2cardsReducer', () => {
 
     expect(draw2cardsReducer(loadingState, action)).toEqual({
         isLoading: false,
-        draw2cards: "A draw2cards",
+        draw2cards: {},
         error: null
     });
   });
