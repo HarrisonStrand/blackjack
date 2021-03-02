@@ -2,22 +2,22 @@ import * as c from './../actions/ActionTypes';
 
 const defaultState = {
   isLoading: false,
-  table: [],
+  dealer: {},
   error: null
 }
 
 export default (state = defaultState, action) => {
   switch (action.type) {
-    case c.REQUEST_TABLE:
+    case c.REQUEST_DEALER:
       return Object.assign({}, state, {
         isLoading: true
       });
-    case c.GET_TABLE_SUCCESS:
+    case c.GET_DEALER_SUCCESS:
       return Object.assign({}, state, {
         isLoading: false,
-        table: action.table
+        dealer: action.dealer
       });
-    case c.GET_TABLE_FAILURE:
+    case c.GET_DEALER_FAILURE:
       return Object.assign({}, state, {
         isLoading: false,
         error: action.error

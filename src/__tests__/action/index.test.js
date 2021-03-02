@@ -1,25 +1,25 @@
 import * as actions from './../../actions';
 import * as c from './../../actions/ActionTypes';
 
-describe('table reducer actions', () => {
-  it('requestTable should create REQUEST_TABLE action', () => {
-    expect(actions.requestTable()).toEqual({
-      type: c.REQUEST_TABLE
+describe('dealer reducer actions', () => {
+  it('requestDealer should create REQUEST_DEALER action', () => {
+    expect(actions.requestDealer()).toEqual({
+      type: c.REQUEST_DEALER
     });
   });
 
-  it('getTableSuccess should create GET_TABLE_SUCCESS action', () => {
-    const tables = "A table";
-    expect(actions.getTableSuccess(tables)).toEqual({
-      type: c.GET_TABLE_SUCCESS,
-      tables
+  it('getDealerSuccess should create GET_DEALER_SUCCESS action', () => {
+    const dealers = "A dealer";
+    expect(actions.getDealerSuccess(dealers)).toEqual({
+      type: c.GET_DEALER_SUCCESS,
+      dealer
     });
   });
 
-  it('getTableFailure should create GET_TABLE_FAILURE action', () => {
+  it('getDealerFailure should create GET_DEALER_FAILURE action', () => {
     const error = "An error";
-    expect(actions.getTableFailure(error)).toEqual({
-      type: c.GET_TABLE_FAILURE,
+    expect(actions.getDealerFailure(error)).toEqual({
+      type: c.GET_DEALER_FAILURE,
       error
     });
   });

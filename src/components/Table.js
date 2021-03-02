@@ -7,7 +7,8 @@ class Table extends React.Component {
 
   componentDidMount() {
     const { dispatch } = this.props;
-    // dispatch(createDealer())
+    const randomNumberForDealerId = Math.floor((Math.random() * 3) + 1);
+    dispatch(createDealer(randomNumberForDealerId));
     // dispatch(createGameDeck())
   }
 
@@ -16,8 +17,16 @@ class Table extends React.Component {
     return (
       <>
         <h1>Lorem working title for outerspace-western-casino-themed blackjack game ipsum</h1>
-        
+        <p>Dealer: {this.props.dealer.Name}</p>
       </>
     )
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    dealer: state.dealer
+  }
+}
+
+export default connect(mapStateToProps)(Table);
