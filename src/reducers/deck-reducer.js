@@ -6,7 +6,7 @@ const defaultState = {
   error: null
 }
 
-export default (state = defaultState, action) => {
+const deckReducer = (state = defaultState, action) => {
   switch (action.type) {
     case c.REQUEST_DECK:
       return Object.assign({}, state, {
@@ -26,3 +26,5 @@ export default (state = defaultState, action) => {
       return state;
     }
 };
+
+export default deckReducer;

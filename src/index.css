@@ -1,13 +1,30 @@
+html {
+  height: 100%;
+}
+
 body {
   margin: 0;
+  min-height: 100%;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: rgb(12, 3, 11);
+  background: linear-gradient(0deg, rgb(37, 14, 0) 5%, rgb(0, 9, 32) 30%, rgba(14,0,25,1) 60%, rgba(4,0,11,1) 80%) no-repeat;
+  background-size: cover;
+  color: whitesmoke;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.space-casino {
+  background: url(https://lumiere-a.akamaihd.net/v1/images/vranki-hotel-and-casino-main_854bbebf.jpeg?region=0%2C0%2C1280%2C720&width=960) no-repeat;
+  background-size: cover;
+  position: fixed;
+  opacity: 20%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  z-index: -1;
 }

@@ -4,6 +4,7 @@ import Table from './Table';
 function App() {
   return (
     <>
+      <div className="space-casino"></div>
       <Table/>
     </>
   );
