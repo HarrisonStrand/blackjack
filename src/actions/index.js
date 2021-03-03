@@ -28,6 +28,20 @@ export const getDraw2CardsFailure = (error) => ({
   error
 });
 
+export const requestHit = () => ({
+  type: c.REQUEST_HIT
+});
+
+export const getHitSuccess = (Hit) => ({
+  type: c.GET_HIT_SUCCESS,
+  Hit
+});
+
+export const getHitFailure = (error) => ({
+  type: c.GET_HIT_FAILURE,
+  error
+});
+
 export const requestDeck = () => ({
   type: c.REQUEST_DECK
 });
@@ -63,7 +77,7 @@ export const createGameDeck = () => {
 export const drawTwoCards = (deckId) => {
   return dispatch => {
     dispatch(requestDraw2Cards);
-    return fetch(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=2`)
+    return fetch(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=4`)
       .then(response => response.json())
       .then(
         (jsonifiedResponse) => {
@@ -71,6 +85,21 @@ export const drawTwoCards = (deckId) => {
         })
       .catch((error) => {
         dispatch(getDraw2CardsFailure(error));
+      });
+  }
+}
+
+export const Hit = (deckId) => {
+  return dispatch => {
+    dispatch(requestHit);
+    return fetch(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=1`)
+      .then(response => response.json())
+      .then(
+        (jsonifiedResponse) => {
+          dispatch(getHitSuccess(jsonifiedResponse.cards));
+        })
+      .catch((error) => {
+        dispatch(getHitFailure(error));
       });
   }
 }

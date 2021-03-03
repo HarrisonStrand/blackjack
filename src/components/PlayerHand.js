@@ -1,18 +1,31 @@
 import React from 'react';
-import Card from './Card';
+import Deal from './Deal';
+import Hit from './Hit';
 import { connect } from 'react-redux';
 
 function PlayerHand(props) {
 
 	console.log(props.twoCardsToDeal);
+	console.log(props.Hit);
 
   return (
     <>
-      <button onClick={props.onDraw2Cards}>Draw Two Cards</button>
-      <p>TESTS</p>
+      <button onClick={props.onDraw2Cards}>Deal</button>
+      <button onClick={props.onHit}>Hit</button>
+      <button>Stand</button>
       {Object.values(props.twoCardsToDeal).map((card, index) =>
 
-      <Card
+      <Deal
+        code={card.code}
+        img={card.image}
+        value={card.value}
+        suit={card.suit}
+        key={index}
+				/>
+				)}
+      {Object.values(props.hit).map((card, index) =>
+
+      <Hit
         code={card.code}
         img={card.image}
         value={card.value}
@@ -26,7 +39,8 @@ function PlayerHand(props) {
 
 const mapStateToProps = state => {
   return {
-    twoCardsToDeal: state.twoCardsToDeal
+    twoCardsToDeal: state.twoCardsToDeal,
+		hit: state.hit
   }
 }
 

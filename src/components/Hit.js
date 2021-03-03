@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Card(props) {
+function Hit(props) {
   return (
     <>
       <img src={props.img} alt="{props.value} of {props.suit}" width='200px' height='auto'/> 
@@ -8,4 +8,4 @@ function Card(props) {
   )
 }
 
-export default Card;
+export default Hit;
