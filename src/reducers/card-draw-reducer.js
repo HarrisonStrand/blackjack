@@ -12,16 +12,13 @@ const drawTwoCardsReducer = (state = [], action) => {
       return Object.assign({}, state, {
         isLoading: true
       });
-    // case c.GET_DRAW2CARDS_SUCCESS:
-    //   const arrayOfTwoCardObjects = action.draw2Cards;
-    //   console.log(arrayOfTwoCardObjects);
-    //   return Object.assign({}, state, {
-    //     isLoading: false,
-    //     draw2Cards: arrayOfTwoCardObjects
-    //   });
     case c.GET_DRAW2CARDS_SUCCESS:
-      console.log(action.draw2cards);
-      };
+      const arrayOfTwoCardObjects = action.draw2cards;
+      console.log(arrayOfTwoCardObjects);
+      return {
+        ...state,
+        ...arrayOfTwoCardObjects
+      }
     case c.GET_DRAW2CARDS_FAILURE:
       return Object.assign({}, state, {
         isLoading: false,

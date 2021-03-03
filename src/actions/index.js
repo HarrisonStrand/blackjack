@@ -67,7 +67,6 @@ export const drawTwoCards = (deckId) => {
       .then(response => response.json())
       .then(
         (jsonifiedResponse) => {
-          console.log(jsonifiedResponse.cards);
           dispatch(getDraw2CardsSuccess(jsonifiedResponse.cards));
         })
       .catch((error) => {

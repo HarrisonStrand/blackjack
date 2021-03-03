@@ -6,7 +6,7 @@ import { combineReducers } from 'redux';
 const rootReducer = combineReducers({
 	deck: deckReducer,
 	dealer: dealerReducer,
-	card: drawTwoCardsReducer
+	twoCardsToDeal: drawTwoCardsReducer
 });
 
 export default rootReducer;
