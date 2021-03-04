@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 function DealerHand(props) {
   return (
     <>
-		{Object.values(props.twoCardsToDeal).map((card, index) =>
+		{/* {Object.values(props.twoCardsToDeal).map((card, index) =>
 
 		<Deal
 			code={card.code}
@@ -25,7 +25,7 @@ function DealerHand(props) {
 			suit={card.suit}
 			key={index}
 			/>
-			)}
+			)} */}
 				</>
 			)
 }

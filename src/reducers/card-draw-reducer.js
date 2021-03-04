@@ -15,10 +15,10 @@ const drawTwoCardsReducer = (state = [], action) => {
     case c.GET_DRAW2CARDS_SUCCESS:
       const arrayOfTwoCardObjects = action.draw2cards;
       console.log(arrayOfTwoCardObjects);
-      return {
+      return [
         ...state,
         ...arrayOfTwoCardObjects
-      }
+      ]
     case c.GET_DRAW2CARDS_FAILURE:
       return Object.assign({}, state, {
         isLoading: false,

@@ -77,7 +77,7 @@ export const createGameDeck = () => {
 export const drawTwoCards = (deckId) => {
   return dispatch => {
     dispatch(requestDraw2Cards);
-    return fetch(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=4`)
+    return fetch(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=2`)
       .then(response => response.json())
       .then(
         (jsonifiedResponse) => {

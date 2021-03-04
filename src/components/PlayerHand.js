@@ -13,7 +13,7 @@ function PlayerHand(props) {
       <button onClick={props.onDraw2Cards}>Deal</button>
       <button onClick={props.onHit}>Hit</button>
       <button>Stand</button>
-      {Object.values(props.twoCardsToDeal).map((card, index) =>
+      {props.twoCardsToDeal.map((card, index) =>
 
       <Deal
         code={card.code}
